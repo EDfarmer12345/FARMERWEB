@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Post Anything</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f1f1f1;
+		}
+		.container {
+			width: 60%;
+			margin: 50px auto;
+			background-color: white;
+			padding: 20px;
+			border-radius: 10px;
+			box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+		}
+		.form-group {
+			margin-bottom: 20px;
+		}
+		.form-group label {
+			display: block;
+			margin-bottom: 5px;
+			font-weight: bold;
+		}
+		.form-group textarea {
+			width: 100%;
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+			resize: none;
+			height: 200px;
+		}
+		.btn {
+			background-color: #4CAF50;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 16px;
+			transition: background-color 0.3s;
+		}
+		.btn:hover {
+			background-color: #3e8e41;
+		}
+		.post {
+			margin: 20px 0px;
+			padding: 20px;
+			background-color: #f9f9f9;
+			border-radius: 5px;
+			box-shadow: 0px 0px 5px rgba(0,0,0,0.2);
+		}
+		.post p {
+			margin: 0px;
+		}
+	</style>
+</head>
+<h2><b>The farmer's encyclopedia</b></h2>
+<img src="logosample.jpg" height="200px">
+<BR>
+<BR>
+    <nav>
+        <a href="http://127.0.0.1:5500/index.html">Home</a>
+        <a href="http://127.0.0.1:5500/aboutus.html">About Us</a>
+        <a href="http://127.0.0.1:5500/crops.html">Crops</a>
+        <a href="http://127.0.0.1:5500/governmentschemes.html">Government Schemes</a>
+        <a href="http://127.0.0.1:5500/community.html">Community</a>
+        <a href="http://127.0.0.1:5500/login.html">LOGIN</a>
+    <a href="http://127.0.0.1:5500/blog.html">BLOG</a><BR>
+        </nav>
+<body>
+	<div class="container">
+		<h1>Post Anything</h1>
+		<form id="post-form" action="#">
+			<div class="form-group">
+				<label for="post-text">Write something:</label>
+				<textarea id="post-text" name="post-text" placeholder="Type here..."></textarea>
+			</div>
+			<button type="submit" class="btn">Post</button>
+		</form>
+		<div id="post-list"></div>
+	</div>
+	<script>
+		const postForm = document.getElementById('post-form');
+		const postList = document.getElementById('post-list');
+		
+		postForm.addEventListener('submit', (e) => {
+			e.preventDefault();
+			const postText = document.getElementById('post-text').value;
+			if(postText.trim() !== '') {
+				const post = document.createElement('div');
+				post.classList.add('post');
+				post.innerHTML = '<p>' + postText + '</p>';
+				postList.prepend(post);
+				postForm.reset();
+			}
+		});
+	</script>
+</body>
+</html>

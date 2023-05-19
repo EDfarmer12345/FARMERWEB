@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Farmhelp - Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: lightgray;
+        }
+        h1 {
+            color: red;
+            text-align: center;
+            margin-top: 50px;
+        }
+        h2 {
+            color: blue;
+            text-align: center;
+            margin-top: 30px;
+        }
+        h3 {
+            color: indigo;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            margin-top: 30px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.3);
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            display: block;
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 100%;
+            font-size: 16px;
+        }
+        button {
+            display: block;
+            margin: 0 auto;
+            margin-top: 10px;
+            padding: 5px 10px;
+            font-size: 16px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <h1>FARMHELP</h1>
+    <form id="registrationForm">
+        <h2>Register</h2>
+        <input type="text" id="nameInput" name="name" placeholder="Name">
+        <input type="email" id="emailInput" name="email" placeholder="Email">
+        <input type="text" id="cityInput" name="city" placeholder="City">
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var name = document.getElementById("nameInput").value;
+            var email = document.getElementById("emailInput").value;
+            var city = document.getElementById("cityInput").value;
+            alert("Account registered successfully!\nName: " + name + "\nEmail: " + email + "\nCity: " + city);
+            // You can add additional code here to submit the form data to a server for further processing
+        });
+    </script>
+    
+</body>
+</html>
